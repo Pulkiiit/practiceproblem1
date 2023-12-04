@@ -1,0 +1,26 @@
+// intermediate
+ # include <stdio.h>
+ # include <string.h>
+ # include <stdlib.h>
+
+ int main(){
+    int i, j, n, op=0;
+    char str[100];
+    printf("Enter the string: \n");
+    gets(str);
+    n = strlen(str);
+    j=1;
+    for(i=0;i<n;i++){
+        if(str[i]==' '){continue;}
+        //initialising first temp
+        if((str[i]=='+'||str[i]=='-'||str[i]=='*'||str[i]=='/') && (j<=1) ){
+            printf ("\nt%d=%c%c%c\n",j,str[i-1],str[i],str[i+1]);
+            j=j+1;    
+        }
+        // everyother case
+        else if((str[i]=='+'||str[i]=='-'||str[i]=='*'||str[i]=='/') && (j>1) ){
+            printf ("t%d=t%d%c%c\n",j,j-1,str[i],str[i+1]);  
+            j=j+1;
+        }
+    }
+ }
